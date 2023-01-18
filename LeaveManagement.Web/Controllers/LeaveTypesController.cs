@@ -28,7 +28,7 @@ namespace LeaveManagement.Web.Controllers
             // SELECT * FROM LeaveTypes
             // The Model
             var leaveTypes = mapper.Map<IEnumerable<LeaveTypeVM>>(await _context.LeaveTypes.ToListAsync());
-              return View(leaveTypes);  // Return view with the model (data).
+            return View(leaveTypes);  // Return view with the model (data).
         }
 
         // GET: LeaveTypes/Details/5
@@ -160,14 +160,14 @@ namespace LeaveManagement.Web.Controllers
             {
                 _context.LeaveTypes.Remove(leaveType);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool LeaveTypeExists(int id)
         {
-          return _context.LeaveTypes.Any(e => e.Id == id);
+            return _context.LeaveTypes.Any(e => e.Id == id);
         }
     }
 }
